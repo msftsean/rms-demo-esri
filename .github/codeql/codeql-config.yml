@@ -1,0 +1,54 @@
+name: "RMS Demo Security Analysis"
+
+# Disable the default CodeQL suite for more targeted analysis
+disable-default-queries: false
+
+# Include additional query suites for comprehensive security analysis
+queries:
+  - name: security-extended
+    uses: security-extended
+  - name: security-and-quality  
+    uses: security-and-quality
+    
+# Add custom queries for specific security patterns
+query-filters:
+  - include:
+      kind:
+        - problem
+        - path-problem
+      severity:
+        - error
+        - warning
+      precision:
+        - high
+        - very-high
+        
+# Configure path filters
+paths:
+  - "src/**"
+  - "!src/Tests/**"
+  - "!src/**/bin/**"
+  - "!src/**/obj/**"
+  
+# Ignore patterns for known false positives
+paths-ignore:
+  - "**/*.generated.cs"
+  - "**/Migrations/**"
+  - "**/*.Designer.cs"
+
+# Language-specific configuration
+# For C# projects
+csharp:
+  # Enable additional security rules
+  security-rules: true
+  # Configure framework detection
+  framework: 
+    - "microsoft.aspnetcore.app"
+    - "microsoft.netcore.app"
+
+# For JavaScript/TypeScript projects  
+javascript:
+  # Include Node.js security patterns
+  node-version: "18"
+  # Enable additional TypeScript analysis
+  typescript: true

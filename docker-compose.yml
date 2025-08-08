@@ -1,0 +1,84 @@
+version: '3.8'
+
+services:
+  rms-demo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=postgres;Database=rmsdemodb;User Id=rmsuser;Password=${DB_PASSWORD:-defaultpassword};
+      - ArcGIS__ApiKey=${ARCGIS_API_KEY}
+      - OAuth__ClientId=${OAUTH_CLIENT_ID}
+      - OAuth__ClientSecret=${OAUTH_CLIENT_SECRET}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - rms-network
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /tmp
+    volumes:
+      - /app/logs
+
+  postgres:
+    image: postgis/postgis:15-3.3-alpine
+    environment:
+      - POSTGRES_DB=rmsdemodb
+      - POSTGRES_USER=rmsuser
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-defaultpassword}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - rms-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rmsuser -d rmsdemodb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - rms-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    security_opt:
+      - no-new-privileges:true
+
+  # Security scanning service
+  trivy:
+    image: aquasecurity/trivy:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - trivy_cache:/root/.cache/
+    networks:
+      - rms-network
+    profiles:
+      - security
+
+networks:
+  rms-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local
+  trivy_cache:
+    driver: local
