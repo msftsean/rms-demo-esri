@@ -1,0 +1,6 @@
+Title,Work Item Type,Area Path,Iteration Path,Tags
+"Ingest RMS requirements matrix","Feature","rmsdemo","rmsdemo\\Sprint 1","RMS;requirements"
+"Create REST endpoints for Records","User Story","rmsdemo","rmsdemo\\Sprint 1","api;records"
+"Add unit tests for Records API","Task","rmsdemo","rmsdemo\\Sprint 1","testing"
+"Dockerize the service","User Story","rmsdemo","rmsdemo\\Sprint 1","devops;container"
+"Deploy to DEV environment","Task","rmsdemo","rmsdemo\\Sprint 1","deployment"
