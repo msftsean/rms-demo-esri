@@ -18,7 +18,7 @@ FROM build AS publish
 RUN dotnet publish "RmsDemo.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 # Runtime stage
-FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS final
+FROM mcr.microsoft.com/dotnet/aspnet:9.0-alpine AS final
 
 # Security: Create non-root user
 RUN addgroup -g 1001 -S appgroup && \
