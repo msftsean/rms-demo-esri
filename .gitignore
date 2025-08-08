@@ -1,0 +1,30 @@
+# Build outputs
+bin/
+obj/
+out/
+
+# Dependencies
+node_modules/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.suo
+*.user
+
+# Azure
+*.azurePubxml
+*.pubxml
+
+# Environment files
+.env
+.env.local
+
+# Temporary files
+*.tmp
+*.temp
