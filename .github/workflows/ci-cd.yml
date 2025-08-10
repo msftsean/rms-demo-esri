@@ -31,13 +31,13 @@ jobs:
         languages: csharp, javascript
         queries: security-extended,security-and-quality
 
-    - name: Autobuild (for CodeQL)
-      uses: github/codeql-action/autobuild@v3
-
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
+
+    - name: Autobuild (for CodeQL)
+      uses: github/codeql-action/autobuild@v3
 
     - name: Restore dependencies
       run: |
@@ -51,8 +51,6 @@ jobs:
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
-      with:
-        category: "/language:csharp"
 
     - name: Run Dependency Review
       uses: actions/dependency-review-action@v4
