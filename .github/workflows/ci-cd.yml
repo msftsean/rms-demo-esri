@@ -74,14 +74,15 @@ jobs:
         node-version: ${{ env.NODE_VERSION }}
         cache: 'npm'
 
-  - name: Install dependencies (frontend + backend)
+    - name: Install dependencies (frontend + backend)
       run: |
-    set -e
-    pushd frontend
-    npm install --no-audit --no-fund
-    npm run build
-    popd
-    dotnet restore
+        set -e
+        pushd frontend
+        npm install --no-audit --no-fund
+        npm run build
+        npm test --silent
+        popd
+        dotnet restore
 
     - name: Build backend
       run: |

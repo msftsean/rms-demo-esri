@@ -11,8 +11,10 @@ namespace RmsDemo.Controllers;
 [Route("api/[controller]")]
 public class RecordsController(RmsDbContext db, ArcGisService arcgis, ILogger<RecordsController> logger) : ControllerBase
 {
+    public record RecordDto(Guid Id, string Title, string? Description, double? Latitude, double? Longitude, DateTime CreatedAt);
+
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Record>>> Get([FromQuery] double? minLon, [FromQuery] double? minLat,
+    public async Task<ActionResult<IEnumerable<RecordDto>>> Get([FromQuery] double? minLon, [FromQuery] double? minLat,
         [FromQuery] double? maxLon, [FromQuery] double? maxLat, CancellationToken ct)
     {
         var query = db.Records.AsQueryable();
@@ -32,14 +34,24 @@ public class RecordsController(RmsDbContext db, ArcGisService arcgis, ILogger<Re
             query = query.Where(r => r.Location != null && poly.Contains(r.Location));
         }
 
-        var results = await query.OrderByDescending(r => r.CreatedAt).Take(500).ToListAsync(ct);
+        var results = await query
+            .OrderByDescending(r => r.CreatedAt)
+            .Take(500)
+            .Select(r => new RecordDto(
+                r.Id,
+                r.Title,
+                r.Description,
+                r.Location != null ? (double?)r.Location.Y : null,
+                r.Location != null ? (double?)r.Location.X : null,
+                r.CreatedAt))
+            .ToListAsync(ct);
         return Ok(results);
     }
 
     public record CreateRecordRequest(string Title, string? Description, double? Latitude, double? Longitude);
 
     [HttpPost]
-    public async Task<ActionResult<Record>> Create([FromBody] CreateRecordRequest req, CancellationToken ct)
+    public async Task<ActionResult<RecordDto>> Create([FromBody] CreateRecordRequest req, CancellationToken ct)
     {
         var rec = new Record
         {
@@ -54,14 +66,30 @@ public class RecordsController(RmsDbContext db, ArcGisService arcgis, ILogger<Re
 
         db.Records.Add(rec);
         await db.SaveChangesAsync(ct);
-        return CreatedAtAction(nameof(GetById), new { id = rec.Id }, rec);
+
+        var dto = new RecordDto(
+            rec.Id,
+            rec.Title,
+            rec.Description,
+            rec.Location != null ? (double?)rec.Location.Y : null,
+            rec.Location != null ? (double?)rec.Location.X : null,
+            rec.CreatedAt);
+        return CreatedAtAction(nameof(GetById), new { id = rec.Id }, dto);
     }
 
     [HttpGet("{id:guid}")]
-    public async Task<ActionResult<Record>> GetById(Guid id, CancellationToken ct)
+    public async Task<ActionResult<RecordDto>> GetById(Guid id, CancellationToken ct)
     {
         var rec = await db.Records.FindAsync([id], ct);
-        return rec is null ? NotFound() : Ok(rec);
+        if (rec is null) return NotFound();
+        var dto = new RecordDto(
+            rec.Id,
+            rec.Title,
+            rec.Description,
+            rec.Location != null ? (double?)rec.Location.Y : null,
+            rec.Location != null ? (double?)rec.Location.X : null,
+            rec.CreatedAt);
+        return Ok(dto);
     }
 
     [HttpGet("geocode")]
