@@ -1,0 +1,84 @@
+name: Deploy to AKS
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Target environment
+        required: true
+        default: production
+        type: choice
+        options: [staging, production]
+  push:
+    branches: [ main ]
+    paths:
+      - 'src/**'
+      - 'k8s/**'
+      - 'Dockerfile'
+
+env:
+  IMAGE_NAME: rms-demo
+  REGISTRY: ${{ secrets.ACR_NAME }}.azurecr.io
+  IMAGE_TAG: ${{ github.sha }}
+  AKS_RG: ${{ secrets.AKS_RESOURCE_GROUP }}
+  AKS_CLUSTER: ${{ secrets.AKS_CLUSTER_NAME }}
+
+jobs:
+  build-and-push:
+    name: Build and Push Image
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Azure Container Registry Login
+        run: |
+          az acr login -n "${{ secrets.ACR_NAME }}"
+
+      - name: Docker Build
+        run: |
+          docker build -t "$REGISTRY/$IMAGE_NAME:$IMAGE_TAG" .
+
+      - name: Docker Push
+        run: |
+          docker push "$REGISTRY/$IMAGE_NAME:$IMAGE_TAG"
+
+  deploy:
+    name: Deploy to AKS
+    runs-on: ubuntu-latest
+    needs: build-and-push
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Set AKS context
+        uses: azure/aks-set-context@v4
+        with:
+          resource-group: ${{ env.AKS_RG }}
+          cluster-name: ${{ env.AKS_CLUSTER }}
+
+      - name: Deploy base manifests (AKS overlay)
+        run: |
+          kubectl apply -k k8s/overlays/aks
+
+      - name: Update API image
+        run: |
+          kubectl -n rms set image deploy/rms-demo api="$REGISTRY/$IMAGE_NAME:$IMAGE_TAG"
+          kubectl -n rms rollout status deploy/rms-demo --timeout=300s
+
+      - name: Show services and ingress
+        run: |
+          kubectl -n rms get svc,ingress
