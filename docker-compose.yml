@@ -10,6 +10,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Server=postgres;Database=rmsdemodb;User Id=rmsuser;Password=${DB_PASSWORD:-defaultpassword};
+  - Redis__ConnectionString=redis:6379
       - ArcGIS__ApiKey=${ARCGIS_API_KEY}
       - OAuth__ClientId=${OAUTH_CLIENT_ID}
       - OAuth__ClientSecret=${OAUTH_CLIENT_SECRET}

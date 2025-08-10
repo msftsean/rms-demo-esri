@@ -304,7 +304,9 @@ This comprehensive demo showcases the integration between GitHub Enterprise and 
   - Backend: .NET 8 for robust API services
   - Database: PostgreSQL + PostGIS for spatial data
   - GIS: ESRI ArcGIS Online/Enterprise integration
-  - Security: OAuth 2.0 + JWT authentication
+   - Security: OAuth 2.0 + JWT authentication
+   - Deployment: Kubernetes (k3s locally via k3d; AKS for Azure)
+   - Ingress: Traefik (k3s) / NGINX (AKS)
 
 **Security Architecture:**
 - Show how security is integrated at every layer
@@ -389,6 +391,22 @@ This comprehensive demo showcases the integration between GitHub Enterprise and 
    - Navigate to Actions tab
    - Watch the security scan trigger
    - Show the pull request checks running
+  
+#### Live App on k3s (2 minutes)
+> "We’ll also show the app running in a real cluster. Locally we use k3d (k3s in Docker) with Traefik ingress."
+
+1. **Cluster status**
+   - `kubectl -n rms get deploy,po,svc,ingress`
+   - Highlight Postgres (PostGIS), Redis, and API pods
+
+2. **Open the app**
+   - Health: http://localhost:8080/health (should be 200)
+   - Swagger: http://localhost:8080/swagger
+   - Codespaces: set port 8080 to Public in Ports panel (to enable app.github.dev URL)
+
+3. **Optional – Create a record**
+   - Use Swagger: POST /api/records to create a sample
+   - GET /api/records to view data
 
 3. **Pull Request Review**
    - Open the created pull request

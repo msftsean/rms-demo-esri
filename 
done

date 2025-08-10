@@ -1,0 +1,4 @@
+NAME       CLASS     HOSTS   ADDRESS                 PORTS   AGE
+rms-demo   traefik   *       172.18.0.2,172.18.0.3   80      26m
+NAME       READY   UP-TO-DATE   AVAILABLE   AGE
+rms-demo   1/1     1            1           26m

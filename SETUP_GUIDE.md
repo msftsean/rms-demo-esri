@@ -35,6 +35,8 @@ This document captures the complete setup process for the RMS Demo ESRI project,
 - `SECURITY.md`
 - `Dockerfile`
 - `docker-compose.yml`
+ - `k8s/` (Kubernetes manifests for local k3s and AKS)
+	 - `namespace.yaml`, `postgres.yaml`, `redis.yaml`, `deployment.yaml`, `ingress.yaml`, `secret-sample.yaml`, `kustomization.yaml`
 
 ### Azure DevOps Integration
 - `setup.sh` - Azure DevOps setup script
@@ -111,6 +113,78 @@ export AZURE_DEVOPS_EXT_GITHUB_PAT="your_github_pat_here"
 3. **GitHub Branch Protection**: Configure protection rules for main branch
 4. **GitHub Advanced Security**: Enable GHAS features
 5. **Dashboards**: Create monitoring dashboards in both platforms
+
+## Local Kubernetes (k3s via k3d) Quickstart
+
+This repo includes a working Kubernetes deployment for local demos using k3d (k3s in Docker).
+
+### Prerequisites
+- Docker available to your dev container
+- k3d (the setup scripts below install it automatically if missing)
+
+### Start cluster, build, import, deploy
+```bash
+# Create cluster with port 8080 routed to the cluster LB
+k3d cluster create rms-demo --agents 1 --port 8080:80@loadbalancer
+
+# Build local API image and import into cluster
+docker build -t rms-demo:local .
+k3d image import rms-demo:local -c rms-demo
+
+# Apply manifests
+kubectl config use-context k3d-rms-demo
+kubectl apply -k k8s
+
+# Wait/check
+kubectl -n rms get deploy,po,svc,ingress
+```
+
+### Access the API (Traefik Ingress)
+- Health: http://localhost:8080/health
+- Swagger: http://localhost:8080/swagger
+
+If you are in GitHub Codespaces, set port 8080 visibility to Public (Ports panel) so the `…-8080.app.github.dev` URL works. The base route `/` redirects to `/swagger` in Development to avoid 404s.
+
+### Restart/Reset
+```bash
+k3d cluster stop rms-demo && k3d cluster start rms-demo
+kubectl apply -k k8s
+```
+
+## Kubernetes Manifests Overview
+- `k8s/namespace.yaml`: Namespace `rms`
+- `k8s/postgres.yaml`: PostGIS StatefulSet + Service; includes init ConfigMap enabling PostGIS
+- `k8s/redis.yaml`: Redis Deployment + Service
+- `k8s/deployment.yaml`: .NET 8 API Deployment with probes, resource limits, read-only root FS (+ /tmp emptyDir), Redis and DB env
+- `k8s/secret-sample.yaml`: Sample secret for DB connection string (applied in dev)
+- `k8s/ingress.yaml`: Traefik Ingress routing `/` to API service
+- `k8s/kustomization.yaml`: Kustomize entrypoint
+
+## AKS Deployment Prep (High-level)
+Use the same manifests with minor changes:
+1. Build/push image to ACR
+	```bash
+	az acr create -n <acrName> -g <rg> --sku Basic
+	az acr login -n <acrName>
+	docker tag rms-demo:local <acrName>.azurecr.io/rms-demo:prod
+	docker push <acrName>.azurecr.io/rms-demo:prod
+	```
+2. Update `k8s/deployment.yaml` image to `<acrName>.azurecr.io/rms-demo:prod` and set `imagePullSecrets` if needed.
+3. On AKS, install an Ingress controller (often NGINX). Then set `ingressClassName: nginx` in `k8s/ingress.yaml`.
+4. Apply manifests:
+	```bash
+	az aks get-credentials -n <aksName> -g <rg>
+	kubectl apply -k k8s
+	kubectl -n rms get all
+	```
+
+Tip: create a `k8s/overlays/aks` kustomize overlay for image, ingress class, and prod settings.
+
+## Troubleshooting (Kubernetes)
+- 404 on base URL: ensure root redirect exists (we map `/` → `/swagger` in Development).
+- GH Codespaces 404 on `…-8080.app.github.dev`: set port 8080 to Public in Ports panel.
+- ImagePullBackOff on k3d: ensure `rms-demo:local` imported (`k3d image import …`) and `imagePullPolicy: IfNotPresent`.
+- DB errors: verify `rms-demo-secrets` is applied and Postgres pod is Running.
 
 ### Troubleshooting Notes
 - Work item types in Azure DevOps Basic template: Epic, Issue, Task
