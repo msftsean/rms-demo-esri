@@ -21,14 +21,30 @@ The RMS Demo ESRI project demonstrates:
 
 ```mermaid
 graph TB
-    A[Frontend - React/TypeScript] --> B[API Gateway]
-    B --> C[RMS Service - .NET 8]
-    C --> D[PostgreSQL + PostGIS]
-    C --> E[Redis Cache]
-    C --> F[ESRI ArcGIS Online]
-    G[GitHub Actions] --> H[Azure Container Registry]
-    H --> I[Azure Container Apps]
-    J[Azure DevOps] --> K[Azure App Service]
+  subgraph Client
+    A[Frontend - React/TypeScript]
+  end
+  subgraph Platform
+    B[API - .NET 8 / ASP.NET Core]
+    D[(PostgreSQL + PostGIS)]
+    E[(Redis)]
+    F[ESRI ArcGIS]
+  end
+  A --> B
+  B --> D
+  B --> E
+  B --> F
+
+  subgraph CI/CD
+    G[GitHub Actions]
+  end
+
+  subgraph Kubernetes (Local)
+    K8S[(k3d/k3s)]
+    I2[Traefik Ingress]
+  end
+  G --> K8S
+  K8S --> I2
 ```
 
 ## ✨ Features
@@ -49,11 +65,11 @@ graph TB
 - **RBAC**: Role-based access control
 
 ### 🚀 **DevOps Integration**
-- **Dual CI/CD**: GitHub Actions + Azure DevOps pipelines
-- **Infrastructure as Code**: Terraform and Bicep templates
-- **Automated Testing**: Unit, integration, and security tests
-- **Environment Management**: Dev, staging, and production environments
-- **Monitoring**: Application insights and logging
+- **CI/CD**: GitHub Actions for security, build, test, and image scanning
+- **Kubernetes Manifests**: Kustomize base for local k3s
+- **Automated Testing**: Unit tests included
+- **Environment**: Local (k3d/k3s with Traefik)
+- **Monitoring**: Application Insights and health checks
 
 ## 🛠️ Technology Stack
 
@@ -65,8 +81,10 @@ graph TB
 | **Cache** | Redis | Performance optimization |
 | **GIS Platform** | ESRI ArcGIS | Mapping and spatial analysis |
 | **Authentication** | OAuth 2.0 + JWT | Security |
-| **Containerization** | Docker + Kubernetes | Deployment |
-| **CI/CD** | GitHub Actions + Azure DevOps | Automation |
+| **Containerization** | Docker | Image build and local dev |
+| **Orchestration** | Kubernetes + Kustomize | Deployment & config |
+| **Local Cluster** | k3d (k3s) + Traefik | Local cluster & ingress |
+| **CI/CD** | GitHub Actions | Automation (build/test/security) |
 | **Monitoring** | Application Insights | Observability |
 
 ## 🚀 Getting Started
@@ -207,15 +225,28 @@ This project implements comprehensive security measures:
 
 ## 🌐 Deployment
 
-### Azure Deployment
+### Local Kubernetes (k3d)
+
+See SETUP_GUIDE.md for full steps. Quickstart:
 
 ```bash
-# Deploy with Azure CLI
-az deployment group create \
-  --resource-group rms-demo-rg \
-  --template-file infrastructure/main.bicep \
-  --parameters @infrastructure/parameters.json
+# Create local cluster with Traefik LB on :8080
+k3d cluster create rms-demo --agents 1 --port 8080:80@loadbalancer
+
+# Build and import image into k3d
+docker build -t rms-demo:local .
+k3d image import rms-demo:local -c rms-demo
+
+# Use cluster context and apply manifests
+kubectl config use-context k3d-rms-demo
+kubectl apply -k k8s
 ```
+
+Access:
+- Health: http://localhost:8080/health
+- Swagger: http://localhost:8080/swagger
+
+<!-- Cloud deployment removed for simplicity; this repo focuses on local k3s. -->
 
 ### GitHub Actions Deployment
 

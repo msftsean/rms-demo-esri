@@ -35,7 +35,7 @@ This document captures the complete setup process for the RMS Demo ESRI project,
 - `SECURITY.md`
 - `Dockerfile`
 - `docker-compose.yml`
- - `k8s/` (Kubernetes manifests for local k3s and AKS)
+ - `k8s/` (Kubernetes manifests for local k3s)
 	 - `namespace.yaml`, `postgres.yaml`, `redis.yaml`, `deployment.yaml`, `ingress.yaml`, `secret-sample.yaml`, `kustomization.yaml`
 
 ### Azure DevOps Integration
@@ -160,25 +160,7 @@ kubectl apply -k k8s
 - `k8s/ingress.yaml`: Traefik Ingress routing `/` to API service
 - `k8s/kustomization.yaml`: Kustomize entrypoint
 
-## AKS Deployment Prep (High-level)
-Use the same manifests with minor changes:
-1. Build/push image to ACR
-	```bash
-	az acr create -n <acrName> -g <rg> --sku Basic
-	az acr login -n <acrName>
-	docker tag rms-demo:local <acrName>.azurecr.io/rms-demo:prod
-	docker push <acrName>.azurecr.io/rms-demo:prod
-	```
-2. Update `k8s/deployment.yaml` image to `<acrName>.azurecr.io/rms-demo:prod` and set `imagePullSecrets` if needed.
-3. On AKS, install an Ingress controller (often NGINX). Then set `ingressClassName: nginx` in `k8s/ingress.yaml`.
-4. Apply manifests:
-	```bash
-	az aks get-credentials -n <aksName> -g <rg>
-	kubectl apply -k k8s
-	kubectl -n rms get all
-	```
-
-Tip: create a `k8s/overlays/aks` kustomize overlay for image, ingress class, and prod settings.
+<!-- AKS/Cloud deployment content removed to keep scope local k3s-only. -->
 
 ## Troubleshooting (Kubernetes)
 - 404 on base URL: ensure root redirect exists (we map `/` → `/swagger` in Development).

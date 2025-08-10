@@ -1,13 +1,1 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-namespace: rms
-resources:
-  - ../../k8s
-patches:
-  - target:
-      kind: Ingress
-      name: rms-demo
-    patch: |-
-      - op: replace
-        path: /spec/ingressClassName
-        value: nginx
+# Deleted: AKS overlay removed. Use base k8s manifests for local k3s only.

@@ -305,8 +305,8 @@ This comprehensive demo showcases the integration between GitHub Enterprise and 
   - Database: PostgreSQL + PostGIS for spatial data
   - GIS: ESRI ArcGIS Online/Enterprise integration
    - Security: OAuth 2.0 + JWT authentication
-   - Deployment: Kubernetes (k3s locally via k3d; AKS for Azure)
-   - Ingress: Traefik (k3s) / NGINX (AKS)
+   - Deployment: Kubernetes (k3s locally via k3d)
+   - Ingress: Traefik (k3s)
 
 **Security Architecture:**
 - Show how security is integrated at every layer
