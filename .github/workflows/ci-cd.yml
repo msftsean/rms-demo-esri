@@ -36,6 +36,11 @@ jobs:
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
 
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+
     - name: Autobuild (for CodeQL)
       uses: github/codeql-action/autobuild@v3
 
