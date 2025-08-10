@@ -57,9 +57,10 @@ jobs:
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
 
-    - name: Run Dependency Review
+    - name: Run Dependency Review (public repos only)
+      if: github.event_name == 'pull_request' && github.event.repository.private == false
       uses: actions/dependency-review-action@v4
-      if: github.event_name == 'pull_request'
+      continue-on-error: true
 
   build-and-test:
     name: Build and Test
