@@ -1,0 +1,32 @@
+# DEVELOPMENT ENVIRONMENT ONLY - EXCLUDED FROM PRODUCTION SECURITY SCANNING
+# 
+# This directory contains Kubernetes configurations for local development using
+# external container registries (PostGIS, Redis) that are not approved for 
+# production use in Microsoft environments.
+#
+# Security Policy:
+# - These files are excluded from Azure DevOps security scanning via .gdnignore
+# - Production deployments use only k8s/overlays/azure/ with Microsoft Container Registry images
+# - Development workflow preserved while maintaining production security compliance
+#
+# Usage:
+# kubectl apply -k k8s/dev/  # Development only
+# kubectl apply -k k8s/overlays/azure/  # Production compliant
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dev-environment-notice
+  namespace: rms
+  labels:
+    environment: development
+    security-exclusion: "true"
+data:
+  notice: |
+    DEVELOPMENT ENVIRONMENT ONLY
+    
+    This configuration uses external container registries for PostGIS and Redis
+    to provide full development functionality. These are excluded from production
+    security scanning and should never be deployed to production environments.
+    
+    For production deployment, use: kubectl apply -k k8s/overlays/azure/

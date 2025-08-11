@@ -91,6 +91,27 @@ The application uses a three-tier architecture:
 
 Each tier must have matching labels in both deployments and service selectors.
 
+## Azure DevOps Security Scanning
+
+### Development vs Production Files
+
+**Problem**: Azure DevOps security scanning flags development environment files for using external registries.
+
+**Solution**: Development files are properly excluded from production security scanning:
+
+- **Development Path**: `k8s/dev/` - Uses external registries (PostGIS, Redis)
+- **Production Path**: `k8s/overlays/azure/` - Uses only Microsoft Container Registry
+- **Exclusion Files**: `.gdnignore` and `.gdn/.gdnconfig` exclude development files from scanning
+
+**Verification**: 
+```bash
+# Development (external registries allowed)
+kubectl apply -k k8s/dev/
+
+# Production (MCR-compliant only)  
+kubectl apply -k k8s/overlays/azure/
+```
+
 ## Quick Fixes
 
 ### Runtime Patches (temporary)

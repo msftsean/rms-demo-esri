@@ -1,0 +1,23 @@
+# Guardian ignore file for Azure DevOps security scanning
+# Excludes development environment files from security scanning
+
+# Development Kubernetes configurations
+k8s/dev/
+k8s/dev/**
+**/dev/**/*.yaml
+**/development/**/*.yaml
+
+# Development setup scripts  
+setup-dev.sh
+**/setup-dev.*
+
+# Development configuration files
+NuGet.config.dev
+frontend/.npmrc.dev
+**/config.dev.*
+**/*.dev.yaml
+
+# Temporary development directories
+/tmp/rms-demo-dev-k8s/
+**/tmp/**
+**/.dev/**
