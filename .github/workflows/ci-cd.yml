@@ -79,6 +79,7 @@ jobs:
       run: |
         set -e
         cd frontend
+        cp .npmrc.dev .npmrc
         npm ci --silent
         npm run build
         npm test
