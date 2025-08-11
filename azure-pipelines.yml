@@ -48,8 +48,14 @@ stages:
       displayName: '.NET Security Check'
         
     - script: |
+        echo "Setting up development NuGet configuration for build..."
+        # Use development NuGet.config for actual package restoration
+        cp NuGet.config.dev NuGet.config.temp
+        mv NuGet.config.temp NuGet.config
         echo "Restoring .NET dependencies..."
         dotnet restore --locked-mode
+        # Restore Azure-compliant NuGet.config after build
+        git checkout HEAD -- NuGet.config
       displayName: 'Restore .NET Dependencies'
       
     - script: |
