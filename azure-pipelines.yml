@@ -94,9 +94,21 @@ stages:
         npm test
       displayName: 'Run Frontend Tests'
       
+    - script: |
+        echo "Checking for test result files..."
+        if [ -d "TestResults" ] && [ "$(ls -A TestResults/*.trx 2>/dev/null)" ]; then
+          echo "Test result files found:"
+          ls -la TestResults/*.trx
+          echo "##vso[task.setvariable variable=TestResultsExist]true"
+        else
+          echo "No test result files found"
+          echo "##vso[task.setvariable variable=TestResultsExist]false"
+        fi
+      displayName: 'Check Test Results'
+      
     - task: PublishTestResults@2
       displayName: 'Publish Test Results'
-      condition: and(succeededOrFailed(), exists('TestResults'))
+      condition: and(succeededOrFailed(), eq(variables['TestResultsExist'], 'true'))
       inputs:
         testResultsFormat: 'VSTest'
         testResultsFiles: 'TestResults/*.trx'
