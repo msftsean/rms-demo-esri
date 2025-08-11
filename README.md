@@ -246,6 +246,19 @@ Access:
 - Health: http://localhost:8080/health
 - Swagger: http://localhost:8080/swagger
 
+Alternative via Traefik host with Ingress:
+
+```bash
+# Build image with local tag
+docker build -t rms-demo:local .
+
+# Apply manifests (namespace, postgres+postgis, redis, api, ingress)
+kubectl apply -k k8s/
+
+# Access through Traefik using DNS that resolves to 127.0.0.1
+open http://rms.localtest.me/
+```
+
 <!-- Cloud deployment removed for simplicity; this repo focuses on local k3s. -->
 
 ### GitHub Actions Deployment

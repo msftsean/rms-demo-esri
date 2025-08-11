@@ -27,6 +27,9 @@ spec:
       labels:
         app: redis
     spec:
+      volumes:
+        - name: redis-data
+          emptyDir: {}
       containers:
         - name: redis
           image: redis:7-alpine
@@ -42,4 +45,7 @@ spec:
             limits:
               cpu: 250m
               memory: 256Mi
-          args: ["--appendonly", "no"]
+          args: ["--save", "", "--appendonly", "no"]
+          volumeMounts:
+            - name: redis-data
+              mountPath: /data

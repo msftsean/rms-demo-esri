@@ -8,3 +8,8 @@ resources:
   - secret-sample.yaml
   - deployment.yaml
   - ingress.yaml
+
+images:
+  - name: rms-demo
+    newName: rms-demo
+    newTag: local
