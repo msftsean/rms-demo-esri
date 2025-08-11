@@ -96,12 +96,14 @@ open http://rms.localtest.me:8080/swagger
 ```
 
 #### **CI/CD Pipeline**
-- **Trigger**: Push to main/develop branches or pull requests
-- **Security**: CodeQL analysis, container scanning with Trivy
-- **Testing**: Backend (xUnit) and frontend (Vitest) test execution
-- **Streamlined**: Removed unnecessary AKS deployment workflows and dependency review
-- **Build**: Frontend (npm) + Backend (.NET) with comprehensive testing
-- **Artifacts**: Docker images with security scan results and SARIF uploads
+- **GitHub Actions**: Push to main/develop branches or pull requests
+- **GitHub Actions**: CodeQL analysis, container scanning with Trivy
+- **GitHub Actions**: Backend (xUnit) and frontend (Vitest) test execution
+- **Azure DevOps**: Standard build/test/deploy pipeline with .NET 8 and Node.js 18
+- **Azure DevOps**: Simplified security approach due to marketplace restrictions
+- **Both Platforms**: Streamlined deployment simulation with kubectl examples
+- **Build Artifacts**: Frontend (npm) + Backend (.NET) with Docker image creation
+- **Test Results**: Comprehensive test result publishing and artifact management
 
 ### 📈 Performance & Monitoring
 
@@ -132,14 +134,16 @@ open http://rms.localtest.me:8080/swagger
 
 ### 🐛 Bug Fixes
 
-#### **CI/CD Pipeline**
-- **Fixed**: CodeQL autobuild hanging due to commented build commands
-- **Fixed**: Node.js setup failing due to npm cache path configuration
-- **Fixed**: Dependency review removed (not supported on private repositories)
-- **Fixed**: Frontend tests failing due to missing jsdom environment
-- **Fixed**: YAML workflow syntax errors through complete file recreation
-- **Removed**: Unnecessary AKS deployment placeholder workflows (k3s-only project scope)
-- **Added**: Trivy container scanning with SARIF security upload
+#### **CI/CD Pipeline Issues**
+- **GitHub Actions**: CodeQL autobuild hanging due to commented build commands
+- **GitHub Actions**: Node.js setup failing due to npm cache path configuration
+- **GitHub Actions**: Dependency review removed (not supported on private repositories)
+- **GitHub Actions**: Frontend tests failing due to missing jsdom environment
+- **GitHub Actions**: YAML workflow syntax errors through complete file recreation
+- **Azure DevOps**: Security scanning tasks unavailable in restricted marketplace environment
+- **Azure DevOps**: Docker@2 task not available, replaced with script-based build
+- **General**: Removed unnecessary AKS deployment placeholder workflows (k3s-only project scope)
+- **Added**: Trivy container scanning with SARIF security upload (GitHub Actions only)
 
 #### **Kubernetes Deployment**
 - **Fixed**: API containers failing due to write attempts on read-only filesystem
@@ -238,11 +242,12 @@ open http://rms.localtest.me:8080/swagger
 - **Security**: Non-root containers with read-only filesystems
 
 #### **CI/CD Pipeline** ✅  
-- **Security Analysis**: CodeQL passing with clean results
-- **Build & Test**: Frontend (2/2) and Backend (3/3) tests passing
-- **Container Scan**: Trivy vulnerability assessment complete
-- **Quality Gates**: All checks passing with streamlined workflow configuration
+- **GitHub Actions**: CodeQL passing with clean results, all tests passing, Trivy scanning operational
+- **Azure DevOps**: Standard build/test pipeline functional with available marketplace tasks
+- **Build & Test**: Frontend (2/2) and Backend (3/3) tests passing on both platforms
+- **Quality Gates**: All checks passing with streamlined workflow configurations
 - **Repository Cleanup**: Removed unnecessary AKS deployment files and resolved YAML syntax issues
+- **Cross-Platform**: Both GitHub Actions and Azure DevOps pipelines operational
 
 #### **Testing Coverage** ✅
 - **Backend API**: Health, CRUD operations, and geocoding fallback
@@ -255,6 +260,6 @@ open http://rms.localtest.me:8080/swagger
 **🎯 Result**: Complete RMS Demo ESRI deployment with enterprise-grade CI/CD pipeline
 
 **Deployment Status**: ✅ All systems operational on k3s (66+ minutes stable runtime)  
-**CI/CD Status**: ✅ Pipeline clean and passing after workflow recreation and cleanup
-**Security Status**: ✅ All scans passing with hardened configurations  
+**CI/CD Status**: ✅ Both GitHub Actions and Azure DevOps pipelines functional and passing
+**Security Status**: ✅ All scans passing with hardened configurations (GitHub Actions: full security suite, Azure DevOps: standard build validation)  
 **Project Scope**: ✅ Streamlined for k3s-only deployment (AKS artifacts removed)
