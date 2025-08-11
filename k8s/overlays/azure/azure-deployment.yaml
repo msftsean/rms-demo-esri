@@ -74,6 +74,7 @@ metadata:
 spec:
   selector:
     app: postgres
+    tier: database
   ports:
     - protocol: TCP
       port: 5432
@@ -138,6 +139,7 @@ metadata:
 spec:
   selector:
     app: redis
+    tier: cache
   ports:
     - protocol: TCP
       port: 6379
@@ -230,6 +232,7 @@ metadata:
 spec:
   selector:
     app: rms-demo
+    tier: backend
   ports:
     - protocol: TCP
       port: 80

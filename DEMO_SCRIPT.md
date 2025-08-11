@@ -7,7 +7,7 @@ This comprehensive demo showcases the integration between GitHub Enterprise and 
 - **GitHub Advanced Security (GHAS)** features
 - **Dual DevOps platform** comparison and integration
 - **Enterprise-grade security** and compliance practices
-- **Zero-warning Azure DevOps securit#### Live App on k3s (2 minutes)
+- **Zero-warning Azure DevOps securit#### Live App on k3d (2 minutes)
 > "We'll also show the app running in a real cluster. Locally we use k3d (k3s in Docker) with Traefik ingress."
 
 1. **Cluster status**
@@ -15,14 +15,16 @@ This comprehensive demo showcases the integration between GitHub Enterprise and 
    - Highlight Postgres (PostGIS), Redis, and API pods
 
 2. **Open the app**
-   - Health: http://rms.localtest.me:8080/health (k3d maps port 8080 to cluster port 80)
-   - Swagger: http://rms.localtest.me:8080/swagger
-   - **Note**: Add `127.0.0.1 rms.localtest.me` to `/etc/hosts` if needed
-   - **Codespaces**: The k3d cluster is already port-mapped, no additional setup needed
+   - Health: http://localhost:8080/health ✅ (confirmed working)
+   - API Records: http://localhost:8080/api/records ✅ (confirmed working)  
+   - Swagger: http://localhost:8080/swagger ⚠️ (returns 404, but redirect from root works)
+   - **k3d Port Mapping**: k3d automatically maps localhost:8080 → cluster port 80
+   - **Troubleshooting**: See TROUBLESHOOTING.md for service discovery issues
 
-3. **Optional – Create a record**
-   - Use Swagger: POST /api/records to create a sample
-   - GET /api/records to view dataachieved through nuclear option approach
+3. **Test API functionality**
+   - Create record: `curl -X POST http://localhost:8080/api/records -H "Content-Type: application/json" -d '{"title":"Demo Record","description":"Test record for demo"}'`
+   - Get records: `curl http://localhost:8080/api/records`
+   - Health check: `curl http://localhost:8080/health` (should return `{"status":"ok"}`)achieved through nuclear option approach
 - **Dual-environment strategy** maintaining development workflow while achieving compliance
 
 **Duration**: 45-60 minutes  
@@ -486,12 +488,14 @@ This comprehensive demo showcases the integration between GitHub Enterprise and 
 
 2. **Open the app**
    - Health: http://localhost:8080/health (should be 200)
-   - Swagger: http://localhost:8080/swagger
+   - API Records: http://localhost:8080/api/records
+   - Swagger: http://localhost:8080/swagger (currently returns 404, investigating)
    - Codespaces: set port 8080 to Public in Ports panel (to enable app.github.dev URL)
 
-3. **Optional – Create a record**
-   - Use Swagger: POST /api/records to create a sample
+3. **Test full API functionality**
+   - Create record: POST /api/records with JSON payload
    - GET /api/records to view data
+   - Verify database persistence working correctly
 
 3. **Pull Request Review**
    - Open the created pull request

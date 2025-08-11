@@ -35,8 +35,11 @@ This document captures the complete setup process for the RMS Demo ESRI project,
 - `SECURITY.md`
 - `Dockerfile`
 - `docker-compose.yml`
- - `k8s/` (Kubernetes manifests for local k3s)
-	 - `namespace.yaml`, `postgres.yaml`, `redis.yaml`, `deployment.yaml`, `ingress.yaml`, `secret-sample.yaml`, `kustomization.yaml`
+- `k8s/` (Kubernetes manifests for local k3s)
+	- `namespace.yaml`, `postgres.yaml`, `redis.yaml`, `deployment.yaml`, `ingress.yaml`, `secret-sample.yaml`, `kustomization.yaml`
+	- `dev/` (Development environment with proper service selectors)
+	- `overlays/azure/` (Azure-compliant deployments with Microsoft Container Registry)
+- `TROUBLESHOOTING.md` - Service discovery and port forwarding troubleshooting guide
 
 ### Azure DevOps Integration
 - `setup.sh` - Azure DevOps setup script
