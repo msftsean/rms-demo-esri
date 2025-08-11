@@ -57,9 +57,16 @@ stages:
         dotnet build --configuration $(buildConfiguration) --no-restore
       displayName: 'Build Backend'
       
+    # Override npm registry for Azure DevOps compliance during build
     - script: |
-        echo "Installing and building React frontend..."
+        echo "Setting up Azure-compliant npm configuration..."
         cd frontend
+        # Create temporary .npmrc for build
+        echo "registry=https://registry.npmjs.org/" > .npmrc.temp
+        echo "package-lock=true" >> .npmrc.temp
+        echo "audit-level=moderate" >> .npmrc.temp
+        echo "fund=false" >> .npmrc.temp
+        mv .npmrc.temp .npmrc
         npm ci --silent
         npm run build
       displayName: 'Build Frontend'

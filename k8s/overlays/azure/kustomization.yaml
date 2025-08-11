@@ -1,22 +1,25 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+# Azure-specific deployment with Microsoft-approved images only
 resources:
-- ../../
-
-# Azure-specific image overrides for security compliance
-images:
-- name: postgis/postgis:15-3.3-alpine
-  newName: mcr.microsoft.com/mirror/docker/library/postgres
-  newTag: 15-alpine
-- name: redis:7-alpine
-  newName: mcr.microsoft.com/mirror/docker/library/redis
-  newTag: 7-alpine
-- name: rms-demo:local
-  newName: mcr.microsoft.com/dotnet/aspnet
-  newTag: "8.0"
+- azure-deployment.yaml
+- ../../namespace.yaml
+- ../../secret-sample.yaml
 
 # Add Azure-specific labels
 commonLabels:
   environment: azure
   compliance: microsoft-approved-images
+
+# Azure-specific configuration
+patchesStrategicMerge:
+- |-
+  apiVersion: v1
+  kind: Secret
+  metadata:
+    name: postgres-secret
+    namespace: rms
+  data:
+    # These should be set via Azure Key Vault in production
+    password: ""
