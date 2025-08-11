@@ -157,7 +157,7 @@ stages:
               echo "Branch: $(Build.SourceBranch)"
               echo "======================================"
               echo "Production deployment commands:"
-              echo "kubectl apply -k k8s/ --context=prod-cluster"
+              echo "kubectl apply -k k8s/overlays/azure/ --context=prod-cluster"
               echo "kubectl -n rms set image deployment/rms-demo rms-demo=rms-demo:$(Build.BuildId)"
               echo "kubectl -n rms rollout status deployment/rms-demo"
               echo "======================================"
