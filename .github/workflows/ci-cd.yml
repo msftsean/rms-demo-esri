@@ -38,13 +38,11 @@ jobs:
 
     - name: Restore dependencies
       run: |
-        echo "Restoring .NET dependencies..."
-        # dotnet restore
+        dotnet restore
 
     - name: Build application
       run: |
-        echo "Building application..."
-        # dotnet build --no-restore
+        dotnet build --configuration Release --no-restore
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
