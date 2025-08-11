@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: rms-demo
+  namespace: rms
+  annotations:
+    # If using k3d with built-in Traefik, this class is typically correct. Adjust if needed.
+    kubernetes.io/ingress.class: "traefik"
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: rms.localtest.me
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: rms-demo
+                port:
+                  number: 80

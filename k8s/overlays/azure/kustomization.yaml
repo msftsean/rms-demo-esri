@@ -2,17 +2,20 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 # Azure-specific deployment with Microsoft-approved images only
+# This overlay contains zero external registry references
+
 resources:
 - azure-deployment.yaml
 - ../../namespace.yaml
 - ../../secret-sample.yaml
+- ../../ingress.yaml
 
 # Add Azure-specific labels
 commonLabels:
   environment: azure
   compliance: microsoft-approved-images
 
-# Azure-specific configuration
+# Azure-specific patches for production
 patchesStrategicMerge:
 - |-
   apiVersion: v1
@@ -20,6 +23,6 @@ patchesStrategicMerge:
   metadata:
     name: postgres-secret
     namespace: rms
-  data:
-    # These should be set via Azure Key Vault in production
-    password: ""
+  stringData:
+    # In production, use Azure Key Vault
+    password: "REPLACE_WITH_AZURE_KEY_VAULT_REFERENCE"

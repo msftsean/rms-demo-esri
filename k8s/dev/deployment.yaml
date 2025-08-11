@@ -1,0 +1,85 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rms-demo
+  namespace: rms
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rms-demo
+  template:
+    metadata:
+      labels:
+        app: rms-demo
+    spec:
+      initContainers:
+        - name: wait-for-postgres
+          image: postgis/postgis:15-3.3-alpine
+          command: ["sh", "-c", "until pg_isready -h postgres -U rmsuser -d rmsdemodb; do echo waiting for postgres; sleep 2; done"]
+      containers:
+        - name: api
+          image: rms-demo:local
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 2
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 20
+            timeoutSeconds: 3
+            failureThreshold: 3
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            runAsUser: 1001
+            runAsGroup: 1001
+            runAsNonRoot: true
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Development
+            - name: ASPNETCORE_URLS
+              value: http://+:8080
+            - name: ConnectionStrings__DefaultConnection
+              valueFrom:
+                secretKeyRef: { name: rms-demo-secrets, key: connectionString }
+            - name: Redis__ConnectionString
+              value: redis:6379
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: tmp
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rms-demo
+  namespace: rms
+spec:
+  selector:
+    app: rms-demo
+  ports:
+    - port: 80
+      targetPort: 8080
+      protocol: TCP
+      name: http
+  type: ClusterIP
