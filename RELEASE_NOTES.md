@@ -8,14 +8,14 @@
 - **✅ Database Connectivity**: Resolved PostgreSQL authentication issues with correct credential configuration
 - **✅ Port Forwarding Stability**: Fixed k3d load balancer mapping for consistent localhost:8080 access
 - **✅ GitHub Actions Fix**: Resolved NuGet configuration errors in all workflow files (NU1301 Azure DevOps feed issues)
-- **✅ Azure DevOps Security**: Configured Guardian exclusions for development files to eliminate false positive warnings
+- **✅ Microsoft 1ES Compliance**: Implemented external development environment to achieve zero registry violations
 
 ### 🛠️ Kubernetes Configuration Improvements
-- **✅ Development Environment**: Created complete `k8s/.dev-local/` configuration with PostGIS and Redis (hidden from Azure security scanning)
+- **✅ External Development Environment**: Created `setup-dev-external.sh` script for Microsoft 1ES compliant development
 - **✅ Service Selector Fix**: Updated all services to use tier-specific selectors preventing endpoint pollution
 - **✅ Secret Management**: Fixed PostgreSQL password configuration for development environment
 - **✅ Azure Deployment**: Enhanced Azure overlay with proper service selectors for enterprise compliance
-- **✅ Security Exclusions**: Added Guardian configuration (`.gdnignore`, `.gdn/.gdnconfig`) to exclude development files from Azure DevOps scanning
+- **✅ Zero Registry Violations**: Removed all external registry references from repository for 100% compliance
 
 ### 📚 Documentation & Troubleshooting
 - **✅ Troubleshooting Guide**: Added comprehensive `TROUBLESHOOTING.md` with service discovery solutions

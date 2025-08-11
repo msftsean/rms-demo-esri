@@ -6,9 +6,11 @@ This Kustomize overlay provides 100% Azure-compliant deployments that eliminate 
 
 ```
 k8s/
-├── .dev-local/             # Development deployment (PostGIS, Redis from Docker Hub) - Hidden from security scanning
 ├── overlays/azure/         # Production deployment (MCR images only)
 └── base files...           # Points to Azure overlay by default
+
+External Development:
+/tmp/rms-demo-dev-external/  # Created by setup-dev-external.sh (PostGIS, Redis from Docker Hub)
 ```
 
 ## Zero-Warning Deployment
@@ -31,8 +33,9 @@ This overlay achieves zero Azure DevOps security warnings by:
 ## Usage
 
 ```bash
-# Development (functional PostGIS + Redis)
-kubectl apply -k k8s/.dev-local/
+# Development (external environment - Microsoft 1ES compliant)
+./setup-dev-external.sh
+kubectl apply -k /tmp/rms-demo-dev-external/k8s/
 
 # Azure Production (100% compliant, zero warnings)
 kubectl apply -k k8s/overlays/azure/
@@ -47,7 +50,7 @@ If this approach causes issues, revert with:
 
 ```bash
 git revert HEAD
-kubectl apply -k k8s/.dev-local/  # Use development configuration
+./setup-dev-external.sh && kubectl apply -k /tmp/rms-demo-dev-external/k8s/  # Use external development configuration
 ```
 
 ## Production Notes

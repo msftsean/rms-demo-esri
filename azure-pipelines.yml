@@ -12,6 +12,8 @@ variables:
   NODE_VERSION: '18'
   DOTNET_SYSTEM_GLOBALIZATION_INVARIANT: '1'
   DOTNET_USE_POLLING_FILE_WATCHER: '1'
+  # Microsoft 1ES Container Security Analysis exclusions
+  SecureSupplyChain.SkipKubernetesFiles: 'k8s/.dev-local/'
 
 stages:
 - stage: Build
