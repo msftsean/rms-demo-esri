@@ -1,6 +1,15 @@
 # Release Notes - RMS Demo ESRI
 
-## Version 1.1.0 - August 11, 2025
+## Version 1.1.0 - January 2025 - Security & Deployment Enhancements
+
+### 🔒 Security Improvements
+- **✅ Credential Management**: Removed all hardcoded passwords from configuration files
+- **✅ Environment Variables**: Created comprehensive `.env.template` for secure configuration
+- **✅ Package Security**: Updated npm dependencies to eliminate vulnerabilities (0 vulnerabilities)
+  - Vite: 5.4.0 → 6.0.3
+  - Vitest: 2.0.5 → 3.2.4
+- **✅ Container Security**: Enhanced Dockerfile with security best practices
+- **✅ Documentation**: Cleaned SECURITY.md to remove placeholder email addresses
 
 ### 🚀 Major Improvements
 

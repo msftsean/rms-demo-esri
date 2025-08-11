@@ -38,7 +38,7 @@ stages:
     - script: |
         echo "Running npm security audit..."
         cd frontend
-        npm audit --audit-level=high || echo "NPM audit completed with warnings"
+        npm audit --audit-level=moderate || echo "NPM audit completed with warnings"
       displayName: 'NPM Security Audit'
       
     # Add .NET security check
@@ -60,7 +60,7 @@ stages:
     - script: |
         echo "Installing and building React frontend..."
         cd frontend
-        npm ci --silent --audit=false
+        npm ci --silent
         npm run build
       displayName: 'Build Frontend'
       

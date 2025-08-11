@@ -24,11 +24,14 @@ FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS final
 RUN addgroup -g 1001 -S appgroup && \
     adduser -S appuser -u 1001 -G appgroup
 
-# Security: Install security updates
+# Security: Install security updates and remove package cache
 RUN apk update && apk upgrade && \
     apk add --no-cache \
     ca-certificates \
-    && rm -rf /var/cache/apk/*
+    curl \
+    wget \
+    && rm -rf /var/cache/apk/* \
+    && rm -rf /tmp/*
 
 WORKDIR /app
 

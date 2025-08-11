@@ -22,10 +22,9 @@ We encourage the responsible disclosure of security vulnerabilities. Please repo
    - Click "Report a vulnerability"
    - Fill out the advisory form
 
-2. **Email**
-   - Send details to: security@example.com
-   - Include "RMS Demo Security" in the subject line
-   - Encrypt sensitive information using our PGP key (available on request)
+2. **GitHub Issues** (For non-sensitive security questions)
+   - Create an issue with the "security" label
+   - For sensitive vulnerabilities, use GitHub Security Advisories instead
 
 ### 📋 What to Include
 
@@ -87,9 +86,9 @@ We provide security resources:
 
 ### 📞 Contact Information
 
-- **Security Team**: security@example.com
 - **Project Maintainer**: [@msftsean](https://github.com/msftsean)
-- **Security Coordinator**: [@msftsean](https://github.com/msftsean)
+- **Security Issues**: Use GitHub Security Advisories for private reporting
+- **General Questions**: Create GitHub issues with "security" label
 
 ### 🏅 Recognition
 
