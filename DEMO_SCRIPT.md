@@ -7,7 +7,22 @@ This comprehensive demo showcases the integration between GitHub Enterprise and 
 - **GitHub Advanced Security (GHAS)** features
 - **Dual DevOps platform** comparison and integration
 - **Enterprise-grade security** and compliance practices
-- **Zero-warning Azure DevOps security compliance** achieved through nuclear option approach
+- **Zero-warning Azure DevOps securit#### Live App on k3s (2 minutes)
+> "We'll also show the app running in a real cluster. Locally we use k3d (k3s in Docker) with Traefik ingress."
+
+1. **Cluster status**
+   - `kubectl -n rms get deploy,po,svc,ingress`
+   - Highlight Postgres (PostGIS), Redis, and API pods
+
+2. **Open the app**
+   - Health: http://rms.localtest.me:8080/health (k3d maps port 8080 to cluster port 80)
+   - Swagger: http://rms.localtest.me:8080/swagger
+   - **Note**: Add `127.0.0.1 rms.localtest.me` to `/etc/hosts` if needed
+   - **Codespaces**: The k3d cluster is already port-mapped, no additional setup needed
+
+3. **Optional – Create a record**
+   - Use Swagger: POST /api/records to create a sample
+   - GET /api/records to view dataachieved through nuclear option approach
 - **Dual-environment strategy** maintaining development workflow while achieving compliance
 
 **Duration**: 45-60 minutes  
