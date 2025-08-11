@@ -496,6 +496,7 @@ This comprehensive demo showcases the integration between GitHub Enterprise and 
    - Create record: POST /api/records with JSON payload
    - GET /api/records to view data
    - Verify database persistence working correctly
+   - **Note**: Development configuration in hidden directory `k8s/.dev-local/` to avoid Azure security scanning
 
 3. **Pull Request Review**
    - Open the created pull request
