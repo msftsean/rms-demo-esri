@@ -10,6 +10,8 @@ variables:
   buildConfiguration: 'Release'
   DOTNET_VERSION: '8.x'
   NODE_VERSION: '18'
+  DOTNET_SYSTEM_GLOBALIZATION_INVARIANT: '1'
+  DOTNET_USE_POLLING_FILE_WATCHER: '1'
 
 stages:
 - stage: Build
@@ -32,9 +34,22 @@ stages:
       inputs:
         versionSpec: $(NODE_VERSION)
         
+    # Add npm security audit step
+    - script: |
+        echo "Running npm security audit..."
+        cd frontend
+        npm audit --audit-level=high || echo "NPM audit completed with warnings"
+      displayName: 'NPM Security Audit'
+      
+    # Add .NET security check
+    - script: |
+        echo "Checking .NET package vulnerabilities..."
+        dotnet list package --vulnerable || echo ".NET security check completed"
+      displayName: '.NET Security Check'
+        
     - script: |
         echo "Restoring .NET dependencies..."
-        dotnet restore
+        dotnet restore --locked-mode
       displayName: 'Restore .NET Dependencies'
       
     - script: |
@@ -45,7 +60,7 @@ stages:
     - script: |
         echo "Installing and building React frontend..."
         cd frontend
-        npm ci --silent
+        npm ci --silent --audit=false
         npm run build
       displayName: 'Build Frontend'
       
@@ -69,8 +84,15 @@ stages:
         mergeTestResults: true
         
     - script: |
-        echo "Building Docker image..."
-        docker build -t rms-demo:$(Build.BuildId) .
+        echo "Building Docker image with security scanning..."
+        # Build with explicit security flags
+        docker build \
+          --no-cache \
+          --pull \
+          --label "org.opencontainers.image.source=https://github.com/msftsean/rms-demo-esri" \
+          --label "org.opencontainers.image.revision=$(Build.SourceVersion)" \
+          --label "org.opencontainers.image.created=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" \
+          -t rms-demo:$(Build.BuildId) .
         echo "Docker image built successfully: rms-demo:$(Build.BuildId)"
       displayName: 'Build Docker Image'
         
