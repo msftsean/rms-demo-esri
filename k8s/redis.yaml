@@ -32,7 +32,7 @@ spec:
           emptyDir: {}
       containers:
         - name: redis
-          image: redis:7-alpine
+          image: mcr.microsoft.com/mirror/docker/library/redis:7-alpine
           ports:
             - containerPort: 6379
           securityContext:

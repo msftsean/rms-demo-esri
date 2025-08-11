@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: postgis/postgis:15-3.3-alpine
+          image: mcr.microsoft.com/mirror/docker/library/postgres:15-alpine
           ports:
             - containerPort: 5432
           env:

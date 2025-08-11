@@ -15,11 +15,11 @@ spec:
     spec:
       initContainers:
         - name: wait-for-postgres
-          image: postgis/postgis:15-3.3-alpine
+          image: mcr.microsoft.com/mirror/docker/library/postgres:15-alpine
           command: ["sh", "-c", "until pg_isready -h postgres -U rmsuser -d rmsdemodb; do echo waiting for postgres; sleep 2; done"]
       containers:
         - name: api
-          image: rms-demo:local
+          image: mcr.microsoft.com/dotnet/aspnet:8.0
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
