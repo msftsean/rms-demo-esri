@@ -36,6 +36,10 @@ jobs:
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
 
+    - name: Use GitHub-compatible NuGet config
+      run: |
+        cp NuGet.config.dev NuGet.config
+
     - name: Restore dependencies
       run: |
         dotnet restore
@@ -67,10 +71,15 @@ jobs:
       with:
         node-version: ${{ env.NODE_VERSION }}
 
+    - name: Use GitHub-compatible configurations
+      run: |
+        cp NuGet.config.dev NuGet.config
+
     - name: Install and test frontend
       run: |
         set -e
         cd frontend
+        cp .npmrc.dev .npmrc
         npm ci --silent
         npm run build
         npm test
