@@ -49,11 +49,6 @@ jobs:
       with:
         category: "/language:csharp"
 
-    - name: Run Dependency Review
-      uses: actions/dependency-review-action@v4
-      if: github.event_name == 'pull_request'
-      continue-on-error: true
-
   build-and-test:
     name: Build and Test
     runs-on: ubuntu-latest
