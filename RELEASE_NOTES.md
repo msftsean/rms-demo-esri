@@ -1,5 +1,34 @@
 # Release Notes - RMS Demo ESRI
 
+## Version 1.2.1 - August 2025 - Service Discovery & Database Connectivity Fix
+
+### 🔧 Critical Infrastructure Fixes
+- **✅ Service Discovery Resolution**: Fixed Kubernetes service selector issues causing intermittent failures
+- **✅ Tier-Based Architecture**: Implemented proper tier labeling (backend, database, cache) for service isolation
+- **✅ Database Connectivity**: Resolved PostgreSQL authentication issues with correct credential configuration
+- **✅ Port Forwarding Stability**: Fixed k3d load balancer mapping for consistent localhost:8080 access
+
+### 🛠️ Kubernetes Configuration Improvements
+- **✅ Development Environment**: Created complete `k8s/dev/` configuration with PostGIS and Redis
+- **✅ Service Selector Fix**: Updated all services to use tier-specific selectors preventing endpoint pollution
+- **✅ Secret Management**: Fixed PostgreSQL password configuration for development environment
+- **✅ Azure Deployment**: Enhanced Azure overlay with proper service selectors for enterprise compliance
+
+### 📚 Documentation & Troubleshooting
+- **✅ Troubleshooting Guide**: Added comprehensive `TROUBLESHOOTING.md` with service discovery solutions
+- **✅ Demo Script Updates**: Updated demo URLs to reflect working localhost:8080 endpoints
+- **✅ Setup Guide**: Enhanced setup documentation with new file structure and configurations
+- **✅ API Verification**: Documented working endpoints and testing procedures
+
+### ✅ Verified Working Components
+- **Health Endpoint**: `http://localhost:8080/health` → Returns `{"status":"ok"}`
+- **API Records**: `http://localhost:8080/api/records` → Full CRUD operations working
+- **Database Persistence**: PostgreSQL with PostGIS successfully storing and retrieving records
+- **k3d Integration**: Stable port forwarding via load balancer container
+
+### ⚠️ Known Issues
+- **Swagger Endpoint**: `/swagger` returns 404 (redirect from root works, investigating endpoint configuration)
+
 ## Version 1.2.0 - January 2025 - Azure DevOps Security Compliance & Pipeline Optimization
 
 ### 🔒 Azure DevOps Security Compliance (ZERO Warnings Achieved)
