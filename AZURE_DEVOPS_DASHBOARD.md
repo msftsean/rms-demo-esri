@@ -87,7 +87,7 @@ Follow the widget configuration in `azure-devops-dashboard.json` to manually cre
 # Requires Azure DevOps CLI and appropriate permissions
 
 # Set variables
-$organization = "your-org"
+$organization = "seanbox"
 $project = "rmsdemo"
 $dashboardConfig = Get-Content "azure-devops-dashboard.json" | ConvertFrom-Json
 
