@@ -1,0 +1,430 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="e1717dad-a956-4dc7-b182-b861e0cf00fd" name="@codespaces-b510eb 2025-08-11 04:54:26" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2025-08-11T04:54:26.1978828+00:00" queuing="2025-08-11T04:54:26.1978829+00:00" start="2025-08-11T04:54:22.7151823+00:00" finish="2025-08-11T04:54:26.6906009+00:00" />
+  <TestSettings name="default" id="12f4dd5a-77b3-4f9a-b736-ad6cf53ef2d7">
+    <Deployment runDeploymentRoot="_codespaces-b510eb_2025-08-11_04_54_26" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="01038809-f2be-45c5-a987-0babc1d83c1a" testId="a3e9d4d4-479d-0892-4a5e-d20664a651d6" testName="RmsDemo.Tests.BasicTests.Geocode_Returns_Predictable_When_No_Key" computerName="codespaces-b510eb" duration="00:00:02.5126974" startTime="2025-08-11T04:54:26.1731422+00:00" endTime="2025-08-11T04:54:26.1731755+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="01038809-f2be-45c5-a987-0babc1d83c1a" />
+    <UnitTestResult executionId="8747d0a4-4b5f-49a3-aade-072b89b36a9c" testId="8da471ed-b638-ccec-6395-3cc7a561f9aa" testName="RmsDemo.Tests.BasicTests.Create_And_Get_Record_Works" computerName="codespaces-b510eb" duration="00:00:00.3644025" startTime="2025-08-11T04:54:26.6138668+00:00" endTime="2025-08-11T04:54:26.6138670+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8747d0a4-4b5f-49a3-aade-072b89b36a9c" />
+    <UnitTestResult executionId="632f0870-a66b-45b1-9962-79f56161806f" testId="7461c8a3-f38e-9fd8-4940-796b5c9a54e1" testName="RmsDemo.Tests.BasicTests.Health_Returns_Ok" computerName="codespaces-b510eb" duration="00:00:00.0747934" startTime="2025-08-11T04:54:26.2491052+00:00" endTime="2025-08-11T04:54:26.2491054+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="632f0870-a66b-45b1-9962-79f56161806f" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="RmsDemo.Tests.BasicTests.Health_Returns_Ok" storage="/workspaces/rms-demo-esri/tests/rmsdemo.tests/bin/release/net8.0/rmsdemo.tests.dll" id="7461c8a3-f38e-9fd8-4940-796b5c9a54e1">
+      <Execution id="632f0870-a66b-45b1-9962-79f56161806f" />
+      <TestMethod codeBase="/workspaces/rms-demo-esri/tests/RmsDemo.Tests/bin/Release/net8.0/RmsDemo.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="RmsDemo.Tests.BasicTests" name="Health_Returns_Ok" />
+    </UnitTest>
+    <UnitTest name="RmsDemo.Tests.BasicTests.Create_And_Get_Record_Works" storage="/workspaces/rms-demo-esri/tests/rmsdemo.tests/bin/release/net8.0/rmsdemo.tests.dll" id="8da471ed-b638-ccec-6395-3cc7a561f9aa">
+      <Execution id="8747d0a4-4b5f-49a3-aade-072b89b36a9c" />
+      <TestMethod codeBase="/workspaces/rms-demo-esri/tests/RmsDemo.Tests/bin/Release/net8.0/RmsDemo.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="RmsDemo.Tests.BasicTests" name="Create_And_Get_Record_Works" />
+    </UnitTest>
+    <UnitTest name="RmsDemo.Tests.BasicTests.Geocode_Returns_Predictable_When_No_Key" storage="/workspaces/rms-demo-esri/tests/rmsdemo.tests/bin/release/net8.0/rmsdemo.tests.dll" id="a3e9d4d4-479d-0892-4a5e-d20664a651d6">
+      <Execution id="01038809-f2be-45c5-a987-0babc1d83c1a" />
+      <TestMethod codeBase="/workspaces/rms-demo-esri/tests/RmsDemo.Tests/bin/Release/net8.0/RmsDemo.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="RmsDemo.Tests.BasicTests" name="Geocode_Returns_Predictable_When_No_Key" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="a3e9d4d4-479d-0892-4a5e-d20664a651d6" executionId="01038809-f2be-45c5-a987-0babc1d83c1a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8da471ed-b638-ccec-6395-3cc7a561f9aa" executionId="8747d0a4-4b5f-49a3-aade-072b89b36a9c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7461c8a3-f38e-9fd8-4940-796b5c9a54e1" executionId="632f0870-a66b-45b1-9962-79f56161806f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Completed">
+    <Counters total="3" executed="3" passed="3" failed="0" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.5.7+8f2703126a (64-bit .NET 8.0.18)
+[xUnit.net 00:00:00.09]   Discovering: RmsDemo.Tests
+[xUnit.net 00:00:00.42]   Discovered:  RmsDemo.Tests
+[xUnit.net 00:00:00.42]   Starting:    RmsDemo.Tests
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10401]
+      An 'IServiceProvider' was created for internal use by Entity Framework.
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 8.0.8 initialized 'RmsDbContext' using provider 'Microsoft.EntityFrameworkCore.InMemory:8.0.8' with options: StoreName=rmsdemo-tests 
+info: Microsoft.EntityFrameworkCore.Update[30100]
+      Saved 0 entities to in-memory store.
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10407]
+      'RmsDbContext' disposed.
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 8.0.8 initialized 'RmsDbContext' using provider 'Microsoft.EntityFrameworkCore.InMemory:8.0.8' with options: StoreName=rmsdemo-tests 
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10407]
+      'RmsDbContext' disposed.
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactory[12]
+      Registered model binder providers, in the following order: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider
+dbug: Microsoft.Extensions.Hosting.Internal.Host[1]
+      Hosting starting
+dbug: Microsoft.AspNetCore.Hosting.Diagnostics[13]
+      Loaded hosting startup assembly RmsDemo
+dbug: Microsoft.Extensions.Hosting.Internal.Host[2]
+      Hosting started
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost/api/records/geocode?address=1600%20Pennsylvania%20Ave - - -
+dbug: Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware[0]
+      Wildcard detected, all requests with hosts will be allowed.
+dbug: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[3]
+      The request path  does not match the path filter
+dbug: Microsoft.AspNetCore.Routing.Matching.DfaMatcher[1001]
+      1 candidate(s) found for the request path '/api/records/geocode'
+dbug: Microsoft.AspNetCore.Routing.Matching.DfaMatcher[1005]
+      Endpoint 'RmsDemo.Controllers.RecordsController.Geocode (RmsDemo)' with route pattern 'api/Records/geocode' is valid for the request path '/api/records/geocode'
+dbug: Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware[1]
+      Request matched endpoint 'RmsDemo.Controllers.RecordsController.Geocode (RmsDemo)'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'RmsDemo.Controllers.RecordsController.Geocode (RmsDemo)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "Geocode", controller = "Records"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Object]] Geocode(System.String, System.Threading.CancellationToken) on controller RmsDemo.Controllers.RecordsController (RmsDemo).
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[1]
+      Execution plan of authorization filters (in the following order): None
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[1]
+      Execution plan of resource filters (in the following order): None
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[1]
+      Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[1]
+      Execution plan of exception filters (in the following order): None
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[1]
+      Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[1]
+      Executing controller factory for controller RmsDemo.Controllers.RecordsController (RmsDemo)
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed controller factory for controller RmsDemo.Controllers.RecordsController (RmsDemo)
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder[22]
+      Attempting to bind parameter 'address' of type 'System.String' ...
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinder[44]
+      Attempting to bind parameter 'address' of type 'System.String' using the name 'address' in request data ...
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinder[45]
+      Done attempting to bind parameter 'address' of type 'System.String'.
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder[23]
+      Done attempting to bind parameter 'address' of type 'System.String'.
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder[26]
+      Attempting to validate the bound parameter 'address' of type 'System.String' ...
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder[27]
+      Done attempting to validate the bound parameter 'address' of type 'System.String'.
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder[22]
+      Attempting to bind parameter 'ct' of type 'System.Threading.CancellationToken' ...
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder[23]
+      Done attempting to bind parameter 'ct' of type 'System.Threading.CancellationToken'.
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder[26]
+      Attempting to validate the bound parameter 'ct' of type 'System.Threading.CancellationToken' ...
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder[27]
+      Done attempting to validate the bound parameter 'ct' of type 'System.Threading.CancellationToken'.
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector[11]
+      List of registered output formatters, in the following order: Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector[4]
+      No information found on request to perform content negotiation.
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector[8]
+      Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector[10]
+      Attempting to select the first formatter in the output formatters list which can write the result.
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector[2]
+      Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter' and content type 'application/json' to write the response.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type '&lt;&gt;f__AnonymousType3`2[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action RmsDemo.Controllers.RecordsController.Geocode (RmsDemo) in 31.8448ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'RmsDemo.Controllers.RecordsController.Geocode (RmsDemo)'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost/api/records/geocode?address=1600%20Pennsylvania%20Ave - 200 76 application/json;+charset=utf-8 104.2620ms
+dbug: Microsoft.Extensions.Hosting.Internal.Host[3]
+      Hosting stopping
+dbug: Microsoft.Extensions.Hosting.Internal.Host[3]
+      Hosting stopping
+dbug: Microsoft.Extensions.Hosting.Internal.Host[4]
+      Hosting stopped
+dbug: Microsoft.Extensions.Hosting.Internal.Host[4]
+      Hosting stopped
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 8.0.8 initialized 'RmsDbContext' using provider 'Microsoft.EntityFrameworkCore.InMemory:8.0.8' with options: StoreName=rmsdemo-tests 
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10407]
+      'RmsDbContext' disposed.
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 8.0.8 initialized 'RmsDbContext' using provider 'Microsoft.EntityFrameworkCore.InMemory:8.0.8' with options: StoreName=rmsdemo-tests 
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10407]
+      'RmsDbContext' disposed.
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactory[12]
+      Registered model binder providers, in the following order: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider
+dbug: Microsoft.Extensions.Hosting.Internal.Host[1]
+      Hosting starting
+dbug: Microsoft.AspNetCore.Hosting.Diagnostics[13]
+      Loaded hosting startup assembly RmsDemo
+dbug: Microsoft.Extensions.Hosting.Internal.Host[2]
+      Hosting started
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost/health - - -
+dbug: Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware[0]
+      Wildcard detected, all requests with hosts will be allowed.
+dbug: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[3]
+      The request path  does not match the path filter
+dbug: Microsoft.AspNetCore.Routing.Matching.DfaMatcher[1001]
+      1 candidate(s) found for the request path '/health'
+dbug: Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware[1]
+      Request matched endpoint 'HTTP: GET /health'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'HTTP: GET /health'
+info: Microsoft.AspNetCore.Http.Result.OkObjectResult[1]
+      Setting HTTP status code 200.
+info: Microsoft.AspNetCore.Http.Result.OkObjectResult[3]
+      Writing value of type '&lt;&gt;f__AnonymousType1`1' as Json.
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'HTTP: GET /health'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost/health - 200 - application/json;+charset=utf-8 10.8116ms
+dbug: Microsoft.Extensions.Hosting.Internal.Host[3]
+      Hosting stopping
+dbug: Microsoft.Extensions.Hosting.Internal.Host[4]
+      Hosting stopped
+dbug: Microsoft.Extensions.Hosting.Internal.Host[3]
+      Hosting stopping
+dbug: Microsoft.Extensions.Hosting.Internal.Host[4]
+      Hosting stopped
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 8.0.8 initialized 'RmsDbContext' using provider 'Microsoft.EntityFrameworkCore.InMemory:8.0.8' with options: StoreName=rmsdemo-tests 
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10407]
+      'RmsDbContext' disposed.
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 8.0.8 initialized 'RmsDbContext' using provider 'Microsoft.EntityFrameworkCore.InMemory:8.0.8' with options: StoreName=rmsdemo-tests 
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10407]
+      'RmsDbContext' disposed.
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.ModelBinderFactory[12]
+      Registered model binder providers, in the following order: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider, Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider
+dbug: Microsoft.Extensions.Hosting.Internal.Host[1]
+      Hosting starting
+dbug: Microsoft.AspNetCore.Hosting.Diagnostics[13]
+      Loaded hosting startup assembly RmsDemo
+dbug: Microsoft.Extensions.Hosting.Internal.Host[2]
+      Hosting started
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 POST http://localhost/api/records - application/json;+charset=utf-8 69
+dbug: Microsoft.AspNetCore.HostFiltering.HostFilteringMiddleware[0]
+      Wildcard detected, all requests with hosts will be allowed.
+dbug: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[1]
+      POST requests are not supported
+dbug: Microsoft.AspNetCore.Routing.Matching.DfaMatcher[1001]
+      1 candidate(s) found for the request path '/api/records'
+dbug: Microsoft.AspNetCore.Routing.Matching.DfaMatcher[1005]
+      Endpoint 'RmsDemo.Controllers.RecordsController.Create (RmsDemo)' with route pattern 'api/Records' is valid for the request path '/api/records'
+dbug: Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware[1]
+      Request matched endpoint 'RmsDemo.Controllers.RecordsController.Create (RmsDemo)'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'RmsDemo.Controllers.RecordsController.Create (RmsDemo)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "Create", controller = "Records"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[RmsDemo.Controllers.RecordsController+RecordDto]] Create(CreateRecordRequest, System.Threading.CancellationToken) on controller RmsDemo.Controllers.RecordsController (RmsDemo).
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[1]
+      Execution plan of authorization filters (in the following order): None
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[1]
+      Execution plan of resource filters (in the following order): None
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[1]
+      Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[1]
+      Execution plan of exception filters (in the following order): None
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[1]
+      Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[1]
+      Executing controller factory for controller RmsDemo.Controllers.RecordsController (RmsDemo)
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed controller factory for controller RmsDemo.Controllers.RecordsController (RmsDemo)
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder[22]
+      Attempting to bind parameter 'req' of type 'RmsDemo.Controllers.RecordsController+CreateRecordRequest' ...
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder[44]
+      Attempting to bind parameter 'req' of type 'RmsDemo.Controllers.RecordsController+CreateRecordRequest' using the name '' in request data ...
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder[2]
+      Rejected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonPatchInputFormatter' for content type 'application/json; charset=utf-8'.
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder[1]
+      Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonInputFormatter' for content type 'application/json; charset=utf-8'.
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder[45]
+      Done attempting to bind parameter 'req' of type 'RmsDemo.Controllers.RecordsController+CreateRecordRequest'.
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder[23]
+      Done attempting to bind parameter 'req' of type 'RmsDemo.Controllers.RecordsController+CreateRecordRequest'.
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder[26]
+      Attempting to validate the bound parameter 'req' of type 'RmsDemo.Controllers.RecordsController+CreateRecordRequest' ...
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder[27]
+      Done attempting to validate the bound parameter 'req' of type 'RmsDemo.Controllers.RecordsController+CreateRecordRequest'.
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder[22]
+      Attempting to bind parameter 'ct' of type 'System.Threading.CancellationToken' ...
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder[23]
+      Done attempting to bind parameter 'ct' of type 'System.Threading.CancellationToken'.
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder[26]
+      Attempting to validate the bound parameter 'ct' of type 'System.Threading.CancellationToken' ...
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder[27]
+      Done attempting to validate the bound parameter 'ct' of type 'System.Threading.CancellationToken'.
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 8.0.8 initialized 'RmsDbContext' using provider 'Microsoft.EntityFrameworkCore.InMemory:8.0.8' with options: StoreName=rmsdemo-tests 
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'RmsDbContext' started tracking 'Record' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.Update[10004]
+      SaveChanges starting for 'RmsDbContext'.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10800]
+      DetectChanges starting for 'RmsDbContext'.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10801]
+      DetectChanges completed for 'RmsDbContext'.
+info: Microsoft.EntityFrameworkCore.Update[30100]
+      Saved 1 entities to in-memory store.
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10807]
+      An entity of type 'Record' tracked by 'RmsDbContext' changed state from 'Added' to 'Unchanged'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.EntityFrameworkCore.Update[10005]
+      SaveChanges completed for 'RmsDbContext' with 1 entities written to the database.
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector[11]
+      List of registered output formatters, in the following order: Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector[4]
+      No information found on request to perform content negotiation.
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector[8]
+      Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector[10]
+      Attempting to select the first formatter in the output formatters list which can write the result.
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector[2]
+      Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter' and content type 'application/json' to write the response.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing CreatedAtActionResult, writing value of type 'RmsDemo.Controllers.RecordsController+RecordDto'.
+dbug: Microsoft.AspNetCore.Routing.DefaultLinkGenerator[100]
+      Found the endpoints RmsDemo.Controllers.RecordsController.GetById (RmsDemo) for address (id=[5ceaf893-0823-4217-9924-392a4614878c],action=[GetById],controller=[Records])
+dbug: Microsoft.AspNetCore.Routing.DefaultLinkGenerator[102]
+      Successfully processed template api/Records/{id:guid} for RmsDemo.Controllers.RecordsController.GetById (RmsDemo) resulting in /api/Records/5ceaf893-0823-4217-9924-392a4614878c and 
+dbug: Microsoft.AspNetCore.Routing.DefaultLinkGenerator[105]
+      Link generation succeeded for endpoints RmsDemo.Controllers.RecordsController.GetById (RmsDemo) with result /api/Records/5ceaf893-0823-4217-9924-392a4614878c
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action RmsDemo.Controllers.RecordsController.Create (RmsDemo) in 138.8386ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'RmsDemo.Controllers.RecordsController.Create (RmsDemo)'
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10407]
+      'RmsDbContext' disposed.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 POST http://localhost/api/records - 201 156 application/json;+charset=utf-8 146.5726ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/1.1 GET http://localhost/api/records/5ceaf893-0823-4217-9924-392a4614878c - - -
+dbug: Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware[3]
+      The request path  does not match the path filter
+dbug: Microsoft.AspNetCore.Routing.Matching.DfaMatcher[1001]
+      1 candidate(s) found for the request path '/api/records/5ceaf893-0823-4217-9924-392a4614878c'
+dbug: Microsoft.AspNetCore.Routing.Matching.DfaMatcher[1005]
+      Endpoint 'RmsDemo.Controllers.RecordsController.GetById (RmsDemo)' with route pattern 'api/Records/{id:guid}' is valid for the request path '/api/records/5ceaf893-0823-4217-9924-392a4614878c'
+dbug: Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware[1]
+      Request matched endpoint 'RmsDemo.Controllers.RecordsController.GetById (RmsDemo)'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'RmsDemo.Controllers.RecordsController.GetById (RmsDemo)'
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[102]
+      Route matched with {action = "GetById", controller = "Records"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[RmsDemo.Controllers.RecordsController+RecordDto]] GetById(System.Guid, System.Threading.CancellationToken) on controller RmsDemo.Controllers.RecordsController (RmsDemo).
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[1]
+      Execution plan of authorization filters (in the following order): None
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[1]
+      Execution plan of resource filters (in the following order): None
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[1]
+      Execution plan of action filters (in the following order): Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000), Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[1]
+      Execution plan of exception filters (in the following order): None
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[1]
+      Execution plan of result filters (in the following order): Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[1]
+      Executing controller factory for controller RmsDemo.Controllers.RecordsController (RmsDemo)
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+      Executed controller factory for controller RmsDemo.Controllers.RecordsController (RmsDemo)
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder[22]
+      Attempting to bind parameter 'id' of type 'System.Guid' ...
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinder[44]
+      Attempting to bind parameter 'id' of type 'System.Guid' using the name 'id' in request data ...
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinder[45]
+      Done attempting to bind parameter 'id' of type 'System.Guid'.
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder[23]
+      Done attempting to bind parameter 'id' of type 'System.Guid'.
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder[26]
+      Attempting to validate the bound parameter 'id' of type 'System.Guid' ...
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder[27]
+      Done attempting to validate the bound parameter 'id' of type 'System.Guid'.
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder[22]
+      Attempting to bind parameter 'ct' of type 'System.Threading.CancellationToken' ...
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder[23]
+      Done attempting to bind parameter 'ct' of type 'System.Threading.CancellationToken'.
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder[26]
+      Attempting to validate the bound parameter 'ct' of type 'System.Threading.CancellationToken' ...
+dbug: Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder[27]
+      Done attempting to validate the bound parameter 'ct' of type 'System.Threading.CancellationToken'.
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10403]
+      Entity Framework Core 8.0.8 initialized 'RmsDbContext' using provider 'Microsoft.EntityFrameworkCore.InMemory:8.0.8' with options: StoreName=rmsdemo-tests 
+dbug: Microsoft.EntityFrameworkCore.Query[10111]
+      Compiling query expression: 
+      'DbSet&lt;Record&gt;()
+          .FirstOrDefault(e =&gt; object.Equals(
+              objA: EF.Property&lt;object&gt;(e, "Id"), 
+              objB: __get_Item_0))'
+dbug: Microsoft.EntityFrameworkCore.Query[10107]
+      Generated query execution expression: 
+      'queryContext =&gt; ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync&lt;Record&gt;(
+          asyncEnumerable: new QueryingEnumerable&lt;Record&gt;(
+              queryContext, 
+              new ResultEnumerable(() =&gt; InMemoryShapedQueryCompilingExpressionVisitor.Table(
+                  queryContext: queryContext, 
+                  entityType: EntityType: Record)
+                  .Where(valueBuffer =&gt; object.Equals(
+                      objA: (object)ExpressionExtensions.ValueBufferTryReadValue&lt;Guid&gt;(
+                          valueBuffer: valueBuffer, 
+                          index: 0, 
+                          property: Property: Record.Id (Guid) Required PK AfterSave:Throw ValueGenerated.OnAdd), 
+                      objB: InMemoryExpressionTranslatingExpressionVisitor.GetParameterValue&lt;object&gt;(
+                          queryContext: queryContext, 
+                          parameterName: "__get_Item_0")))
+                  .Select(valueBuffer =&gt; new ValueBuffer(new object[]
+                  { 
+                      (object)ExpressionExtensions.ValueBufferTryReadValue&lt;Guid&gt;(
+                          valueBuffer: valueBuffer, 
+                          index: 0, 
+                          property: Property: Record.Id (Guid) Required PK AfterSave:Throw ValueGenerated.OnAdd), 
+                      (object)ExpressionExtensions.ValueBufferTryReadValue&lt;DateTime&gt;(
+                          valueBuffer: valueBuffer, 
+                          index: 1, 
+                          property: Property: Record.CreatedAt (DateTime) Required Index), 
+                      ExpressionExtensions.ValueBufferTryReadValue&lt;string&gt;(
+                          valueBuffer: valueBuffer, 
+                          index: 2, 
+                          property: Property: Record.Description (string) MaxLength(2000)), 
+                      ExpressionExtensions.ValueBufferTryReadValue&lt;Point&gt;(
+                          valueBuffer: valueBuffer, 
+                          index: 3, 
+                          property: Property: Record.Location (Point)), 
+                      ExpressionExtensions.ValueBufferTryReadValue&lt;string&gt;(
+                          valueBuffer: valueBuffer, 
+                          index: 4, 
+                          property: Property: Record.Title (string) Required MaxLength(200)) 
+                  }))
+                  .FirstOrDefault()), 
+              Func&lt;QueryContext, ValueBuffer, Record&gt;, 
+              RmsDemo.Data.RmsDbContext, 
+              False, 
+              True
+          ), 
+          cancellationToken: queryContext.CancellationToken)'
+dbug: Microsoft.EntityFrameworkCore.ChangeTracking[10806]
+      Context 'RmsDbContext' started tracking 'Record' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector[11]
+      List of registered output formatters, in the following order: Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter, Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector[4]
+      No information found on request to perform content negotiation.
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector[8]
+      Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector[10]
+      Attempting to select the first formatter in the output formatters list which can write the result.
+dbug: Microsoft.AspNetCore.Mvc.Infrastructure.DefaultOutputFormatterSelector[2]
+      Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.NewtonsoftJsonOutputFormatter' and content type 'application/json' to write the response.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor[1]
+      Executing OkObjectResult, writing value of type 'RmsDemo.Controllers.RecordsController+RecordDto'.
+info: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[105]
+      Executed action RmsDemo.Controllers.RecordsController.GetById (RmsDemo) in 184.1163ms
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'RmsDemo.Controllers.RecordsController.GetById (RmsDemo)'
+dbug: Microsoft.EntityFrameworkCore.Infrastructure[10407]
+      'RmsDbContext' disposed.
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/1.1 GET http://localhost/api/records/5ceaf893-0823-4217-9924-392a4614878c - 200 156 application/json;+charset=utf-8 188.5636ms
+dbug: Microsoft.Extensions.Hosting.Internal.Host[3]
+      Hosting stopping
+dbug: Microsoft.Extensions.Hosting.Internal.Host[4]
+      Hosting stopped
+dbug: Microsoft.Extensions.Hosting.Internal.Host[3]
+      Hosting stopping
+dbug: Microsoft.Extensions.Hosting.Internal.Host[4]
+      Hosting stopped
+[xUnit.net 00:00:03.43]   Finished:    RmsDemo.Tests
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>

@@ -79,7 +79,13 @@ stages:
       
     - script: |
         echo "Running backend tests..."
-        dotnet test --configuration $(buildConfiguration) --no-build --logger trx --results-directory TestResults
+        # Ensure TestResults directory exists
+        mkdir -p TestResults
+        # Run tests and build if needed
+        dotnet test tests/RmsDemo.Tests/RmsDemo.Tests.csproj --configuration $(buildConfiguration) --logger trx --results-directory TestResults
+        # Debug: List what was created
+        echo "Test results created:"
+        ls -la TestResults/ || echo "No TestResults directory or files found"
       displayName: 'Run Backend Tests'
       
     - script: |
@@ -90,11 +96,12 @@ stages:
       
     - task: PublishTestResults@2
       displayName: 'Publish Test Results'
-      condition: succeededOrFailed()
+      condition: and(succeededOrFailed(), exists('TestResults'))
       inputs:
         testResultsFormat: 'VSTest'
         testResultsFiles: 'TestResults/*.trx'
         mergeTestResults: true
+        failTaskOnFailedTests: true
         
     - script: |
         echo "Building Docker image with security scanning..."
