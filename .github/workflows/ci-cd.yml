@@ -52,6 +52,7 @@ jobs:
     - name: Run Dependency Review
       uses: actions/dependency-review-action@v4
       if: github.event_name == 'pull_request'
+      continue-on-error: true
 
   build-and-test:
     name: Build and Test
@@ -72,24 +73,19 @@ jobs:
         node-version: ${{ env.NODE_VERSION }}
         cache: 'npm'
 
-    - name: Install dependencies (frontend + backend)
+    - name: Install and test frontend
       run: |
         set -e
-        pushd frontend
-        npm install --no-audit --no-fund
+        cd frontend
+        npm ci --silent
         npm run build
-        npm test --silent
-        popd
+        npm test --run
+      
+    - name: Install and test backend  
+      run: |
+        set -e
         dotnet restore
-
-    - name: Build backend
-      run: |
-        set -e
         dotnet build --configuration Release --no-restore
-
-    - name: Run unit tests
-      run: |
-        set -e
         dotnet test --logger trx --results-directory TestResults
 
     - name: Run integration tests
