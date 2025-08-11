@@ -12,4 +12,4 @@ This directory contains Guardian (Microsoft security scanning) configuration fil
 - **Azure Compliance**: Only production-path files (k8s/overlays/azure/) are scanned for compliance
 
 ## External Registry Policy
-Development files in `k8s/dev/` use external registries (PostGIS, Redis) for full functionality but are excluded from Azure DevOps security scanning to maintain compliance while preserving developer experience.
+Development files in `k8s/.dev-local/` use external registries (PostGIS, Redis) for full functionality but are excluded from Azure DevOps security scanning to maintain compliance while preserving developer experience.

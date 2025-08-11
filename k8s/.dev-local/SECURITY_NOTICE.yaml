@@ -10,7 +10,7 @@
 # - Development workflow preserved while maintaining production security compliance
 #
 # Usage:
-# kubectl apply -k k8s/dev/  # Development only
+# kubectl apply -k k8s/.dev-local/  # Development only
 # kubectl apply -k k8s/overlays/azure/  # Production compliant
 
 apiVersion: v1

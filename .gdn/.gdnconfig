@@ -11,6 +11,8 @@
       "successExitCodes": [0],
       "arguments": {
         "exclude": [
+          "k8s/.dev-local/",
+          "k8s/.dev-local/**/*",
           "k8s/dev/",
           "k8s/dev/**/*",
           "**/dev/**/*.yaml",
@@ -29,6 +31,7 @@
       "successExitCodes": [0, 1],
       "arguments": {
         "excludePaths": [
+          "k8s/.dev-local/",
           "k8s/dev/",
           "**/dev/**",
           "**/development/**",

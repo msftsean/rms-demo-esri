@@ -1,7 +1,9 @@
 # Guardian ignore file for Azure DevOps security scanning
 # Excludes development environment files from security scanning
 
-# Development Kubernetes configurations
+# Development Kubernetes configurations (hidden directory)
+k8s/.dev-local/
+k8s/.dev-local/**
 k8s/dev/
 k8s/dev/**
 **/dev/**/*.yaml

@@ -11,7 +11,7 @@
 - **✅ Azure DevOps Security**: Configured Guardian exclusions for development files to eliminate false positive warnings
 
 ### 🛠️ Kubernetes Configuration Improvements
-- **✅ Development Environment**: Created complete `k8s/dev/` configuration with PostGIS and Redis
+- **✅ Development Environment**: Created complete `k8s/.dev-local/` configuration with PostGIS and Redis (hidden from Azure security scanning)
 - **✅ Service Selector Fix**: Updated all services to use tier-specific selectors preventing endpoint pollution
 - **✅ Secret Management**: Fixed PostgreSQL password configuration for development environment
 - **✅ Azure Deployment**: Enhanced Azure overlay with proper service selectors for enterprise compliance

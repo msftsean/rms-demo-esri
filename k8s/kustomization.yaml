@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: rms
 
 # Production-ready configuration using Azure-compliant images
-# For development, use: kubectl apply -k k8s/dev/
+# For development, use: kubectl apply -k k8s/.dev-local/
 
 resources:
   - namespace.yaml
