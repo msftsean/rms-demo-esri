@@ -1,0 +1,22 @@
+# Azure DevOps Security Scanning Configuration
+# This file configures which paths to exclude from security scanning
+
+# Exclude development Kubernetes manifests from container analysis
+# These files contain development-friendly images that should not be scanned
+# Production deployments use k8s/overlays/azure/ with approved images
+
+exclude:
+  paths:
+    # Development Kubernetes files (use Azure overlay for production)
+    - "k8s/deployment.yaml"
+    - "k8s/redis.yaml" 
+    - "k8s/postgres.yaml"
+    
+    # Development configuration files
+    - "docker-compose.yml"
+    - "frontend/.npmrc.dev"
+    
+  reasons:
+    - "Development files contain external registry references for local functionality"
+    - "Production deployments use k8s/overlays/azure/ with Microsoft-approved images"
+    - "Security scanning should focus on production deployment paths"

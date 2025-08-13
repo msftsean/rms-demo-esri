@@ -71,7 +71,7 @@ jobs:
       with:
         node-version: ${{ env.NODE_VERSION }}
 
-    - name: Use GitHub-compatible NuGet config
+    - name: Use GitHub-compatible configurations
       run: |
         cp NuGet.config.dev NuGet.config
 

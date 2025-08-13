@@ -1,0 +1,11 @@
+# Development .npmrc override
+# Copy this to frontend/.npmrc for local development
+
+registry=https://registry.npmjs.org/
+package-lock=true
+audit-level=moderate
+fund=false
+
+# Instructions:
+# 1. For local development: cp .npmrc.dev frontend/.npmrc
+# 2. For Azure DevOps: Use the existing frontend/.npmrc

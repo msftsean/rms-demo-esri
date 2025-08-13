@@ -9,8 +9,8 @@ services:
       - "8080:8080"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__DefaultConnection=Server=postgres;Database=rmsdemodb;User Id=rmsuser;Password=${DB_PASSWORD:-defaultpassword};
-  - Redis__ConnectionString=redis:6379
+      - ConnectionStrings__DefaultConnection=Server=postgres;Database=rmsdemodb;User Id=rmsuser;Password=${DB_PASSWORD};
+      - Redis__ConnectionString=redis:6379
       - ArcGIS__ApiKey=${ARCGIS_API_KEY}
       - OAuth__ClientId=${OAUTH_CLIENT_ID}
       - OAuth__ClientSecret=${OAUTH_CLIENT_SECRET}
@@ -33,7 +33,7 @@ services:
     environment:
       - POSTGRES_DB=rmsdemodb
       - POSTGRES_USER=rmsuser
-      - POSTGRES_PASSWORD=${DB_PASSWORD:-defaultpassword}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
     ports:
       - "5432:5432"
     volumes:

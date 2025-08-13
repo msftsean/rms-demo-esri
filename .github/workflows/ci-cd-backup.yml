@@ -71,7 +71,7 @@ jobs:
       with:
         node-version: ${{ env.NODE_VERSION }}
 
-    - name: Use GitHub-compatible NuGet config
+    - name: Use GitHub-compatible configurations
       run: |
         cp NuGet.config.dev NuGet.config
 
@@ -103,6 +103,8 @@ jobs:
         name: test-results
         path: TestResults/
 
+  # Coverage upload omitted to keep pipeline simple
+
   container-scan:
     name: Container Security Scan
     runs-on: ubuntu-latest
@@ -127,3 +129,5 @@ jobs:
       if: always()
       with:
         sarif_file: 'trivy-results.sarif'
+
+  # Deployment jobs removed to keep repo focused on local k3s usage

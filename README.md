@@ -21,30 +21,39 @@ The RMS Demo ESRI project demonstrates:
 
 ```mermaid
 graph TB
-  subgraph Client
-    A[Frontend - React/TypeScript]
-  end
-  subgraph Platform
-    B[API - .NET 8 / ASP.NET Core]
-    D[(PostgreSQL + PostGIS)]
-    E[(Redis)]
-    F[ESRI ArcGIS]
-  end
-  A --> B
-  B --> D
-  B --> E
-  B --> F
-
-  subgraph CI/CD
-    G[GitHub Actions]
-  end
-
-  subgraph Kubernetes (Local)
-    K8S[(k3d/k3s)]
-    I2[Traefik Ingress]
-  end
-  G --> K8S
-  K8S --> I2
+    A[Frontend React/TypeScript] --> B[API .NET 8 ASP.NET Core]
+    B --> D[(PostgreSQL + PostGIS)]
+    B --> E[(Redis Cache)]
+    B --> F[ESRI ArcGIS Platform]
+    G[GitHub Actions CI/CD] --> H[Kubernetes k3d/k3s]
+    H --> I[Traefik Ingress]
+    I --> B
+    
+    subgraph client [Client Layer]
+        A
+    end
+    
+    subgraph app [Application Layer]
+        B
+    end
+    
+    subgraph data [Data Layer]
+        D
+        E
+    end
+    
+    subgraph external [External Services]
+        F
+    end
+    
+    subgraph devops [DevOps]
+        G
+    end
+    
+    subgraph infra [Infrastructure]
+        H
+        I
+    end
 ```
 
 ## ✨ Features
@@ -245,6 +254,19 @@ kubectl apply -k k8s
 Access:
 - Health: http://localhost:8080/health
 - Swagger: http://localhost:8080/swagger
+
+Alternative via Traefik host with Ingress:
+
+```bash
+# Build image with local tag
+docker build -t rms-demo:local .
+
+# Apply manifests (namespace, postgres+postgis, redis, api, ingress)
+kubectl apply -k k8s/
+
+# Access through Traefik using DNS that resolves to 127.0.0.1
+open http://rms.localtest.me/
+```
 
 <!-- Cloud deployment removed for simplicity; this repo focuses on local k3s. -->
 
