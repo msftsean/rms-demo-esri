@@ -19,42 +19,41 @@ The RMS Demo ESRI project demonstrates:
 
 ## 🏗️ Architecture
 
-<!-- Updated diagram with proper Mermaid syntax -->
 ```mermaid
 graph TB
-    subgraph "Client Layer"
-        A[Frontend<br/>React/TypeScript]
+    A[Frontend React/TypeScript] --> B[API .NET 8 ASP.NET Core]
+    B --> D[(PostgreSQL + PostGIS)]
+    B --> E[(Redis Cache)]
+    B --> F[ESRI ArcGIS Platform]
+    G[GitHub Actions CI/CD] --> H[Kubernetes k3d/k3s]
+    H --> I[Traefik Ingress]
+    I --> B
+    
+    subgraph client [Client Layer]
+        A
     end
     
-    subgraph "Application Layer"
-        B[API<br/>.NET 8 / ASP.NET Core]
+    subgraph app [Application Layer]
+        B
     end
     
-    subgraph "Data Layer"
-        D[(PostgreSQL<br/>+ PostGIS)]
-        E[(Redis<br/>Cache)]
+    subgraph data [Data Layer]
+        D
+        E
     end
     
-    subgraph "External Services"
-        F[ESRI ArcGIS<br/>Platform]
+    subgraph external [External Services]
+        F
     end
     
-    subgraph "DevOps"
-        G[GitHub Actions<br/>CI/CD]
+    subgraph devops [DevOps]
+        G
     end
     
-    subgraph "Infrastructure"
-        K8S[Kubernetes<br/>k3d/k3s]
-        I2[Traefik<br/>Ingress]
+    subgraph infra [Infrastructure]
+        H
+        I
     end
-    
-    A --> B
-    B --> D
-    B --> E
-    B --> F
-    G --> K8S
-    K8S --> I2
-    I2 --> B
 ```
 
 ## ✨ Features
