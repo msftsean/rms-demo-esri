@@ -19,6 +19,7 @@ The RMS Demo ESRI project demonstrates:
 
 ## 🏗️ Architecture
 
+<!-- Updated diagram with proper Mermaid syntax -->
 ```mermaid
 graph TB
     subgraph "Client Layer"
